@@ -1,5 +1,12 @@
 # Changelog
 
+## 0.1.1 - 2026-08-17
+
+- 修复 npm 安装后插件未进入 DSH profile、设置项不显示的问题。
+- 新增标准 `dsh.bundle` 声明与 `cordis.patch.yml` 激活层。
+- 将宿主提供的客户端 peer dependency 标记为 optional，避免 profile 安装出现误导性的缺失依赖警告。
+- 新增发布清单冒烟测试，防止安装包再次遗漏激活层。
+
 ## 0.1.0 - 2026-08-17
 
 - 首个公开测试预览版，npm 包名为 `dsh-bestui`。
