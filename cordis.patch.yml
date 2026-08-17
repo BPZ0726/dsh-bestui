@@ -1,0 +1,7 @@
+# BestUI profile bundle layer.
+# `dsh plugin --profile web add dsh-bestui` installs this package, then the
+# launcher applies this patch to mount the host row and discover its client half.
+
+- insert:
+    - id: dsh-bestui
+      name: dsh-bestui
