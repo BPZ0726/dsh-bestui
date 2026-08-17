@@ -1,7 +1,7 @@
 {
   "name": "dsh-bestui",
   "description": "Adaptive wallpaper and appearance studio for the DeepSeek Harness Web UI, with image-derived light/dark palettes, colors, blur, fonts, radius, opacity, and scaling.",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "type": "module",
   "main": "lib/index.js",
   "keywords": [
@@ -38,9 +38,13 @@
     "./client": {
       "default": "./dist/client.js"
     },
+    "./cordis.patch.yml": "./cordis.patch.yml",
     "./package.json": "./package.json"
   },
   "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    },
     "client": {
       "inject": [
         "@deepseek-ai/dsh-client-ui-theme",
@@ -54,7 +58,16 @@
     "@deepseek-ai/dsh-client-ui-theme": "^0.1.0-rc.6",
     "@deepseek-ai/dsh-client-ui-slots": "^0.1.0-rc.6"
   },
+  "peerDependenciesMeta": {
+    "@deepseek-ai/dsh-client-ui-theme": {
+      "optional": true
+    },
+    "@deepseek-ai/dsh-client-ui-slots": {
+      "optional": true
+    }
+  },
   "files": [
+    "cordis.patch.yml",
     "lib/index.js",
     "lib/runtime.js",
     "lib/ui.js",
