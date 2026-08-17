@@ -1,0 +1,29 @@
+name: CI
+
+on:
+  push:
+    branches: [main, master]
+  pull_request:
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        node: [18, 20, 22]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: ${{ matrix.node }}
+      - name: Build bundles
+        run: node scripts/build.mjs
+      - name: Smoke tests
+        run: node test/smoke.mjs
+      - name: Check dist is up to date
+        run: |
+          git diff --exit-code -- dist/ || {
+            echo "::error::dist/ differs from what scripts/build.mjs generates — run it locally and commit the output";
+            exit 1;
+          }
