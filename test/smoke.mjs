@@ -34,6 +34,17 @@ function test(label, fn) {
   }
 }
 
+test("package advertises an installable DSH profile bundle", () => {
+  const manifest = JSON.parse(readFileSync(join(root, "package.json"), "utf8"));
+  const patch = readFileSync(join(root, "cordis.patch.yml"), "utf8");
+  assert.equal(manifest.version, "0.1.1");
+  assert.equal(manifest.dsh?.bundle?.patch, "./cordis.patch.yml");
+  assert.equal(manifest.exports?.["./cordis.patch.yml"], "./cordis.patch.yml");
+  assert.ok(manifest.files.includes("cordis.patch.yml"));
+  assert.match(patch, /id:\s*dsh-bestui/);
+  assert.match(patch, /name:\s*dsh-bestui/);
+});
+
 // ---------------------------------------------------------------------------
 // color math
 // ---------------------------------------------------------------------------
