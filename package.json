@@ -1,0 +1,75 @@
+{
+  "name": "dsh-bestui",
+  "description": "Adaptive wallpaper and appearance studio for the DeepSeek Harness Web UI, with image-derived light/dark palettes, colors, blur, fonts, radius, opacity, and scaling.",
+  "version": "0.1.0",
+  "type": "module",
+  "main": "lib/index.js",
+  "keywords": [
+    "dsh",
+    "dsh-plugin",
+    "deepseek-harness",
+    "plugin",
+    "theme",
+    "wallpaper",
+    "ui",
+    "cordis",
+    "client"
+  ],
+  "author": "BPZ0726",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/BPZ0726/dsh-bestui.git"
+  },
+  "homepage": "https://github.com/BPZ0726/dsh-bestui#readme",
+  "bugs": {
+    "url": "https://github.com/BPZ0726/dsh-bestui/issues"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "exports": {
+    ".": {
+      "default": "./lib/index.js"
+    },
+    "./client": {
+      "default": "./dist/client.js"
+    },
+    "./package.json": "./package.json"
+  },
+  "dsh": {
+    "client": {
+      "inject": [
+        "@deepseek-ai/dsh-client-ui-theme",
+        "@deepseek-ai/dsh-client-ui-slots"
+      ],
+      "platform": "web",
+      "immediately": true
+    }
+  },
+  "peerDependencies": {
+    "@deepseek-ai/dsh-client-ui-theme": "^0.1.0-rc.6",
+    "@deepseek-ai/dsh-client-ui-slots": "^0.1.0-rc.6"
+  },
+  "files": [
+    "lib/index.js",
+    "lib/runtime.js",
+    "lib/ui.js",
+    "dist/client.js",
+    "dist/dynamic-client.js",
+    "scripts/build.mjs",
+    "scripts/verify-spill.mjs",
+    "test/smoke.mjs",
+    "README.md",
+    "LICENSE",
+    "CHANGELOG.md"
+  ],
+  "scripts": {
+    "build": "node scripts/build.mjs",
+    "test": "node test/smoke.mjs",
+    "verify": "node scripts/verify-spill.mjs"
+  }
+}

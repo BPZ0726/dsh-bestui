@@ -1,0 +1,9 @@
+# Normalize to LF on checkout for every text file (Windows-safe diffs).
+* text=auto eol=lf
+
+# Binary assets
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.gif binary
+*.webp binary

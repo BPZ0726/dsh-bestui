@@ -1,0 +1,22 @@
+# dependencies (none today, but never commit them)
+node_modules/
+
+# logs
+*.log
+npm-debug.log*
+
+# OS / editor junk
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+*.swp
+
+# local temp artifacts (byte-compare extracts etc.)
+.tmp-*
+
+# coverage
+coverage/
+
+# note: dist/ is intentionally committed — the host serves those files directly
+# and README links dist/dynamic-client.js for manual installs.
